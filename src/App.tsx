@@ -38,7 +38,7 @@ export const PRODUCT_TYPES: ProductType[] = [
     name: 'Meat & Protein',
     color: 'bg-amber-700',
     examples: ['Beef', 'Chicken', 'Fish', 'Turkey'],
-    description: 'Protein-rich foods that retain texture and flavor',
+    description: 'Protein-rich foods that retain flavor and nutritional value',
     emoji: '🥩'
   },
   {
@@ -53,7 +53,7 @@ export const PRODUCT_TYPES: ProductType[] = [
 
 function App() {
   const [currentPhase, setCurrentPhase] = useState<ProcessPhase>('initial');
-  const [speed, setSpeed] = useState(1);
+
   const [selectedProduct, setSelectedProduct] = useState<ProductType>(PRODUCT_TYPES[0]);
 
   return (
@@ -85,20 +85,17 @@ function App() {
           <div>
             <ProcessAnimation 
               currentPhase={currentPhase} 
-              speed={speed}
               selectedProduct={selectedProduct}
             />
           </div>
 
           {/* Essential Controls - Right below animation for mobile */}
           <div className="lg:hidden">
-            <ControlPanel 
-              currentPhase={currentPhase}
-              setCurrentPhase={setCurrentPhase}
-              speed={speed}
-              setSpeed={setSpeed}
-              isMobile={true}
-            />
+                    <ControlPanel
+          currentPhase={currentPhase}
+          setCurrentPhase={setCurrentPhase}
+          isMobile={true}
+        />
           </div>
 
           {/* Desktop Layout - Side by side */}
@@ -110,13 +107,11 @@ function App() {
             
             {/* Right - Control Panel */}
             <div>
-              <ControlPanel 
-                currentPhase={currentPhase}
-                setCurrentPhase={setCurrentPhase}
-                speed={speed}
-                setSpeed={setSpeed}
-                isMobile={false}
-              />
+                        <ControlPanel
+            currentPhase={currentPhase}
+            setCurrentPhase={setCurrentPhase}
+            isMobile={false}
+          />
             </div>
           </div>
 

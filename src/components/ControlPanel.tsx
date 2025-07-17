@@ -1,20 +1,16 @@
 import React from 'react';
-import { RotateCcw, SkipForward, SkipBack, Gauge } from 'lucide-react';
+import { RotateCcw, SkipForward, SkipBack } from 'lucide-react';
 import { ProcessPhase } from '../App';
 
 interface ControlPanelProps {
   currentPhase: ProcessPhase;
   setCurrentPhase: (phase: ProcessPhase) => void;
-  speed: number;
-  setSpeed: (speed: number) => void;
   isMobile?: boolean;
 }
 
 const ControlPanel: React.FC<ControlPanelProps> = ({
   currentPhase,
   setCurrentPhase,
-  speed,
-  setSpeed,
   isMobile = false
 }) => {
   const phases: { key: ProcessPhase; label: string; duration: string }[] = [
@@ -86,22 +82,7 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
             Reset to Start
           </button>
 
-          {/* Speed Control - Compact */}
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2">
-              <Gauge size={14} className="text-[#A6D8C3]" />
-              <span className="text-sm text-[#A6D8C3]">Speed: {speed}x</span>
-            </div>
-            <input
-              type="range"
-              min="0.5"
-              max="3"
-              step="0.5"
-              value={speed}
-              onChange={(e) => setSpeed(parseFloat(e.target.value))}
-              className="flex-1 h-2 bg-[#138196] rounded-lg appearance-none cursor-pointer slider"
-            />
-          </div>
+
 
           {/* Quick Phase Selection - Mobile friendly */}
           <div className="grid grid-cols-5 gap-1 mt-3">
@@ -161,22 +142,7 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
           Reset to Beginning
         </button>
 
-        {/* Speed Control */}
-        <div className="space-y-2">
-          <div className="flex items-center gap-2">
-            <Gauge size={16} className="text-[#A6D8C3]" />
-            <span className="text-sm text-[#A6D8C3]">Animation Speed: {speed}x</span>
-          </div>
-          <input
-            type="range"
-            min="0.5"
-            max="3"
-            step="0.5"
-            value={speed}
-            onChange={(e) => setSpeed(parseFloat(e.target.value))}
-            className="w-full h-2 bg-[#138196] rounded-lg appearance-none cursor-pointer slider"
-          />
-        </div>
+
       </div>
 
       {/* Phase Selection */}

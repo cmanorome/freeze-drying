@@ -4,13 +4,11 @@ import { ProcessPhase, ProductType } from '../App';
 
 interface ProcessAnimationProps {
   currentPhase: ProcessPhase;
-  speed: number;
   selectedProduct: ProductType;
 }
 
 const ProcessAnimation: React.FC<ProcessAnimationProps> = ({ 
   currentPhase, 
-  speed, 
   selectedProduct 
 }) => {
   const [waterMolecules, setWaterMolecules] = useState<Array<{id: number, x: number, y: number, state: 'liquid' | 'ice' | 'vapor'}>>([]);
@@ -57,7 +55,7 @@ const ProcessAnimation: React.FC<ProcessAnimationProps> = ({
           setWaterMolecules(prev => prev.map((m, i) => 
             i < prev.length * 0.7 ? { ...m, state: 'vapor' } : m
           ));
-        }, 1000 / speed);
+        }, 1000);
         break;
       case 'secondary-drying':
         setTemperature(40);
@@ -69,7 +67,7 @@ const ProcessAnimation: React.FC<ProcessAnimationProps> = ({
         setPressure(1013);
         break;
     }
-  }, [currentPhase, speed]);
+  }, [currentPhase]);
 
   const getPhaseDescription = () => {
     const productExample = selectedProduct.examples[0];
@@ -183,9 +181,9 @@ const ProcessAnimation: React.FC<ProcessAnimationProps> = ({
                                [0.8, 0.6, 0.8]
                     }}
                     transition={{
-                      duration: molecule.state === 'vapor' ? 2 / speed : 
-                               molecule.state === 'liquid' ? 2.5 / speed : 
-                               3 / speed,
+                      duration: molecule.state === 'vapor' ? 2 : 
+                               molecule.state === 'liquid' ? 2.5 : 
+                               3,
                       repeat: molecule.state === 'liquid' ? Infinity : 
                              molecule.state === 'ice' ? Infinity : 0,
                       repeatType: 'reverse',
