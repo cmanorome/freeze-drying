@@ -1,5 +1,5 @@
 import React from 'react';
-import { Play, Pause, RotateCcw, SkipForward, SkipBack, Gauge } from 'lucide-react';
+import { RotateCcw, SkipForward, SkipBack, Gauge } from 'lucide-react';
 import { ProcessPhase } from '../App';
 
 interface ControlPanelProps {

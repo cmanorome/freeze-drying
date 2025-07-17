@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import ProcessAnimation from './components/ProcessAnimation';
 import ControlPanel from './components/ControlPanel';
 import TemperaturePressureChart from './components/TemperaturePressureChart';

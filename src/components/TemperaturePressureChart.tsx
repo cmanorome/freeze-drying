@@ -49,7 +49,7 @@ const TemperaturePressureChart: React.FC<TemperaturePressureChartProps> = ({ cur
           <div className="relative h-48">
             <svg className="w-full h-full" viewBox="0 0 300 200">
               {/* Grid lines */}
-              {[-40, -20, 0, 20, 40].map((temp, i) => (
+              {[-40, -20, 0, 20, 40].map((temp) => (
                 <g key={temp}>
                   <line
                     x1="30"
@@ -112,7 +112,7 @@ const TemperaturePressureChart: React.FC<TemperaturePressureChartProps> = ({ cur
           <div className="relative h-48">
             <svg className="w-full h-full" viewBox="0 0 300 200">
               {/* Grid lines */}
-              {[0.1, 1, 10, 100, 1000].map((pressure, i) => (
+              {[0.1, 1, 10, 100, 1000].map((pressure) => (
                 <g key={pressure}>
                   <line
                     x1="30"

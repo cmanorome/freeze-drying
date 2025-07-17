@@ -2,6 +2,7 @@
   "name": "freeze-drying-b2b",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "B2B application for freeze drying processes and solutions",
   "scripts": {
     "dev": "vite",
