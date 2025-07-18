@@ -57,7 +57,7 @@ function App() {
   const [selectedProduct, setSelectedProduct] = useState<ProductType>(PRODUCT_TYPES[0]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#138196] via-[#69AEB1] to-[#A6D8C3] text-[#F5F9F8]">
+    <div className="min-h-screen text-[#F5F9F8]">
       <div className="container mx-auto px-4 py-6">
         {/* Header */}
         <div className="text-center mb-6">
